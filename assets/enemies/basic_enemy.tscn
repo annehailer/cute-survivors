@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://duw6d6777obyx"]
+
+[ext_resource type="Script" uid="uid://beu4whjv2aea8" path="res://assets/enemies/basic_enemy.gd" id="1_dwceu"]
+[ext_resource type="Texture2D" uid="uid://dudyq0nalu7hw" path="res://assets/enemies/cyclops.png" id="1_wa64b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucbw6"]
+radius = 16.124516
+
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=1920597755]
+collision_layer = 0
+script = ExtResource("1_dwceu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2347054]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_wa64b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933030198]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_ucbw6")
