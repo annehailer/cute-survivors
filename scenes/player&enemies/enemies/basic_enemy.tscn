@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://duw6d6777obyx"]
 
-[ext_resource type="Script" uid="uid://beu4whjv2aea8" path="res://assets/enemies/basic_enemy.gd" id="1_dwceu"]
-[ext_resource type="Texture2D" uid="uid://dudyq0nalu7hw" path="res://assets/enemies/cyclops.png" id="1_wa64b"]
+[ext_resource type="Script" uid="uid://beu4whjv2aea8" path="res://scenes/player&enemies/enemies/basic_enemy.gd" id="1_dwceu"]
+[ext_resource type="Texture2D" uid="uid://dudyq0nalu7hw" path="res://assets/sprites/cyclops.png" id="1_wa64b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 15.0
