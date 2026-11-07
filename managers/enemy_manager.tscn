@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b0nyiy4t0trh1"]
+
+[ext_resource type="Script" uid="uid://d2uemrafu8ye1" path="res://managers/enemy_manager.gd" id="1_e74v5"]
+[ext_resource type="PackedScene" uid="uid://duw6d6777obyx" path="res://assets/enemies/basic_enemy.tscn" id="2_myqsb"]
+
+[node name="EnemySpawnerManager" type="Node" unique_id=1241279670]
+script = ExtResource("1_e74v5")
+basic_enemy_scene = ExtResource("2_myqsb")
+
+[node name="Timer" type="Timer" parent="." unique_id=1064942006]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
