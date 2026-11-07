@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://beu4whjv2aea8" path="res://scenes/player&enemies/enemies/basic_enemy.gd" id="1_dwceu"]
 [ext_resource type="Texture2D" uid="uid://dudyq0nalu7hw" path="res://assets/sprites/cyclops.png" id="1_wa64b"]
+[ext_resource type="PackedScene" uid="uid://cehvsthrg1d4n" path="res://scenes/component/health_component.tscn" id="2_rxucu"]
+[ext_resource type="PackedScene" uid="uid://bfedca2m3ju3u" path="res://scenes/component/vial_drop_component.tscn" id="3_lyknp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 15.0
@@ -14,6 +16,11 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_dwceu")
+
+[node name="HealthComponent" parent="." unique_id=804352997 instance=ExtResource("2_rxucu")]
+
+[node name="VialDropComponent" parent="." unique_id=1504829907 node_paths=PackedStringArray("health_component") instance=ExtResource("3_lyknp")]
+health_component = NodePath("../HealthComponent")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=283304388]
 collision_layer = 0

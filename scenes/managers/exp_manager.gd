@@ -6,7 +6,7 @@ var current_exp = 0
 func _ready():
 	GameEvents.exp_vial_collected.connect(on_exp_vial_collected)
 
-func increment_exp(number: float):
+func increment_exp(number: int):
 	current_exp += number
 	print(current_exp)
 
