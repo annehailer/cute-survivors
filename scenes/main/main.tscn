@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0nyiy4t0trh1" path="res://scenes/managers/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://c1c2wd4se4vrg" path="res://scenes/managers/arena_time_manager.tscn" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://6k3lnp08l0xa" path="res://scenes/game_camera/game_camera.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://dxa384qseosaw" path="res://scenes/managers/exp_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://bhr0pjq653704" path="res://scenes/game_obj/exp_vial/exp_vial.tscn" id="7_hujxm"]
 
 [node name="Main" type="Node" unique_id=1064688048]
@@ -17,6 +18,8 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="EnemySpawnerManager" parent="." unique_id=1241279670 instance=ExtResource("1_l3cfh")]
 
+[node name="ExpManager" parent="." unique_id=1412573870 instance=ExtResource("4_yyfjg")]
+
 [node name="GameCamera" parent="." unique_id=1025735755 instance=ExtResource("3_k2fmo")]
 
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=2094235984]
@@ -26,5 +29,17 @@ tile_set = ExtResource("1_iuonh")
 [node name="Player" parent="." unique_id=1953585945 instance=ExtResource("1_hyk8p")]
 position = Vector2(330, 201)
 
-[node name="ExpVile" parent="." unique_id=1024233643 instance=ExtResource("7_hujxm")]
-position = Vector2(236, 162)
+[node name="ExpVial" parent="." unique_id=1024233643 instance=ExtResource("7_hujxm")]
+position = Vector2(205, 95)
+
+[node name="ExpVial2" parent="." unique_id=989817932 instance=ExtResource("7_hujxm")]
+position = Vector2(339, 118)
+
+[node name="ExpVial3" parent="." unique_id=1236125398 instance=ExtResource("7_hujxm")]
+position = Vector2(242, 178)
+
+[node name="ExpVial4" parent="." unique_id=1846228557 instance=ExtResource("7_hujxm")]
+position = Vector2(281, 270)
+
+[node name="ExpVial5" parent="." unique_id=985570301 instance=ExtResource("7_hujxm")]
+position = Vector2(391, 201)
