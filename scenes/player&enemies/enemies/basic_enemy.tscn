@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dudyq0nalu7hw" path="res://assets/sprites/cyclops.png" id="1_wa64b"]
 [ext_resource type="PackedScene" uid="uid://cehvsthrg1d4n" path="res://scenes/component/health_component.tscn" id="2_rxucu"]
 [ext_resource type="PackedScene" uid="uid://bfedca2m3ju3u" path="res://scenes/component/vial_drop_component.tscn" id="3_lyknp"]
+[ext_resource type="PackedScene" uid="uid://dc6u5ay6k5sa7" path="res://scenes/component/hurtbox_component.tscn" id="4_csewq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_csewq"]
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucbw6"]
@@ -22,13 +23,12 @@ script = ExtResource("1_dwceu")
 [node name="VialDropComponent" parent="." unique_id=1504829907 node_paths=PackedStringArray("health_component") instance=ExtResource("3_lyknp")]
 health_component = NodePath("../HealthComponent")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=283304388]
-collision_layer = 0
-collision_mask = 4
+[node name="HurtboxComponent" parent="." unique_id=1730692090 node_paths=PackedStringArray("health_component") instance=ExtResource("4_csewq")]
+health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=108721409]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1116556111]
 position = Vector2(0, -12)
-shape = SubResource("CircleShape2D_3d6ni")
+shape = SubResource("CircleShape2D_csewq")
 debug_color = Color(0.6539005, 0.008186319, 0.31419885, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2347054]
@@ -40,4 +40,13 @@ texture = ExtResource("1_wa64b")
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ucbw6")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Label" type="Label" parent="." unique_id=1555309813]
+unique_name_in_owner = true
+visible = false
+offset_left = -19.0
+offset_top = -51.0
+offset_right = 21.0
+offset_bottom = -28.0
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1

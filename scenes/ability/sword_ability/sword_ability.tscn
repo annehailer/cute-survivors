@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://rp7qiss5cxfq"]
 
+[ext_resource type="Script" uid="uid://dnqqexayvb12l" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_t8g1f"]
 [ext_resource type="Texture2D" uid="uid://um85lobedl78" path="res://scenes/ability/sword_ability/sword.png" id="1_upg5g"]
+[ext_resource type="PackedScene" uid="uid://uf4xjf7ilrum" path="res://scenes/component/hitbox_component.tscn" id="2_abpad"]
 
 [sub_resource type="Animation" id="Animation_upg5g"]
 length = 0.001
@@ -31,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -86,7 +88,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -102,10 +104,11 @@ _data = {
 &"swing": SubResource("Animation_abpad")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_abpad"]
 radius = 33.0
 
 [node name="SwordAbility" type="Node2D" unique_id=1716809787]
+script = ExtResource("1_t8g1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1330838497]
 scale = Vector2(1.5, 1.5)
@@ -117,12 +120,10 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_t8g1f")
 autoplay = &"swing"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=476732397]
-collision_layer = 4
-collision_mask = 0
+[node name="HitboxComponent" parent="." unique_id=1156350180 instance=ExtResource("2_abpad")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=842170095]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=264918026]
 position = Vector2(14, 0)
-shape = SubResource("CircleShape2D_3d6ni")
+shape = SubResource("CircleShape2D_abpad")
 disabled = true
 debug_color = Color(0.8679192, 0.17663911, 0.75228864, 0.41960785)
