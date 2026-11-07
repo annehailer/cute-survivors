@@ -10,7 +10,9 @@ radius = 15.0
 radius = 11.0
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=1920597755 groups=["enemy"]]
-collision_layer = 0
+collision_layer = 8
+collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_dwceu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=283304388]
