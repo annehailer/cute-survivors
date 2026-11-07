@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bhr0pjq653704"]
 
 [ext_resource type="Texture2D" uid="uid://8d8f8rwfedbq" path="res://assets/sprites/exp_vile.png" id="1_50r45"]
-[ext_resource type="Script" uid="uid://dmknrkn3i2cuh" path="res://scenes/game_obj/exp_vile/exp_vile.gd" id="1_x8n8b"]
+[ext_resource type="Script" uid="uid://dmknrkn3i2cuh" path="res://scenes/game_obj/exp_vial/exp_vial.gd" id="1_x8n8b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 11.0
 
-[node name="ExpVile" type="Node2D" unique_id=1024233643]
+[node name="ExpVial" type="Node2D" unique_id=1024233643]
 script = ExtResource("1_x8n8b")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2051548569]

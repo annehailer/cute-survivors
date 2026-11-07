@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0nyiy4t0trh1" path="res://scenes/managers/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://c1c2wd4se4vrg" path="res://scenes/managers/arena_time_manager.tscn" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://6k3lnp08l0xa" path="res://scenes/game_camera/game_camera.tscn" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://bhr0pjq653704" path="res://scenes/game_obj/exp_vile/exp_vile.tscn" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://bhr0pjq653704" path="res://scenes/game_obj/exp_vial/exp_vial.tscn" id="7_hujxm"]
 
 [node name="Main" type="Node" unique_id=1064688048]
 
