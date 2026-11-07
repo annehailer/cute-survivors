@@ -5,19 +5,27 @@
 [ext_resource type="TileSet" uid="uid://bjpjvo58obrps" path="res://resources/tileset.tres" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://b0nyiy4t0trh1" path="res://scenes/managers/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://c1c2wd4se4vrg" path="res://scenes/managers/arena_time_manager.tscn" id="2_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://gwhgilkmq8l4" path="res://scenes/UI/experience_bar.tscn" id="2_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://6k3lnp08l0xa" path="res://scenes/game_camera/game_camera.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://dxa384qseosaw" path="res://scenes/managers/exp_manager.tscn" id="4_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://bk61f2gr8tmxu" path="res://scenes/managers/upgrade_manager.tscn" id="6_b1x3f"]
 
 [node name="Main" type="Node" unique_id=1064688048]
 
 [node name="ArenaTimeUI" parent="." unique_id=289628378 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
 
+[node name="ExperienceBar" parent="." unique_id=1025351203 node_paths=PackedStringArray("exp_manager") instance=ExtResource("2_yyfjg")]
+exp_manager = NodePath("../ExpManager")
+
 [node name="ArenaTimeManager" parent="." unique_id=1737489471 instance=ExtResource("2_ow5a4")]
 
 [node name="EnemySpawnerManager" parent="." unique_id=1241279670 instance=ExtResource("1_l3cfh")]
 
 [node name="ExpManager" parent="." unique_id=1412573870 instance=ExtResource("4_yyfjg")]
+
+[node name="UpgradeManager" parent="." unique_id=1826587050 node_paths=PackedStringArray("exp_manager") instance=ExtResource("6_b1x3f")]
+exp_manager = NodePath("../ExpManager")
 
 [node name="GameCamera" parent="." unique_id=1025735755 instance=ExtResource("3_k2fmo")]
 

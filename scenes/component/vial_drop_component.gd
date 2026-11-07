@@ -1,6 +1,6 @@
 extends Node
 
-@export_range(0, 1) var drop_pecent: float = 0.5
+@export_range(0, 1) var drop_pecent: float = 1
 @export var health_component: Node
 @export var vial_scene: PackedScene
 
