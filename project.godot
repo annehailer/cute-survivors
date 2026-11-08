@@ -36,6 +36,8 @@ window/stretch/aspect="expand"
 
 enemy=""
 player=""
+entities_layer=""
+foreground_layer=""
 
 [input]
 

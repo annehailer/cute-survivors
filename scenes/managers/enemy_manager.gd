@@ -4,12 +4,11 @@ const SPAWN_RADIUS = 375
 
 @export var basic_enemy_scene:PackedScene
 
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	pass 
 
 
-
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player")
 	if player == null:
 		return
@@ -18,6 +17,8 @@ func _on_timer_timeout() -> void:
 	var spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
 	
 	var enemy = basic_enemy_scene.instantiate()
-	get_tree().current_scene.add_child(enemy)
+	
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	entities_layer.add_child(enemy)
 	enemy.global_position = spawn_position
 	
