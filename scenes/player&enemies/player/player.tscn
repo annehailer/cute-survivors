@@ -2,10 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dp77i584qgnly" path="res://assets/sprites/player.png" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://bpr24sq028mpx" path="res://scenes/player&enemies/player/player.gd" id="1_h6syq"]
+[ext_resource type="PackedScene" uid="uid://cehvsthrg1d4n" path="res://scenes/component/health_component.tscn" id="2_ie5ye"]
 [ext_resource type="PackedScene" uid="uid://bvijfx4pxwsys" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_v2miy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 20.024984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cso4"]
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucbw6"]
 
@@ -14,18 +18,33 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_h6syq")
 
+[node name="HealthComponent" parent="." unique_id=804352997 instance=ExtResource("2_ie5ye")]
+
 [node name="AbilityManager" type="Node" parent="." unique_id=1580921682]
 
 [node name="SwordAbilityController" parent="AbilityManager" unique_id=788343777 instance=ExtResource("2_v2miy")]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=495833925]
+[node name="DamageIntervalTimer" type="Timer" parent="." unique_id=330152183]
+wait_time = 0.5
+one_shot = true
+
+[node name="PickupArea2D" type="Area2D" parent="." unique_id=495833925]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1202333553]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea2D" unique_id=1202333553]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_3d6ni")
-debug_color = Color(0.90613884, 0.11362063, 0.96797615, 0.41960785)
+debug_color = Color(0.58280563, 0.30330688, 1, 0.41960785)
+
+[node name="CollisionArea2D" type="Area2D" parent="." unique_id=1857849759]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D" unique_id=627939223]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_3cso4")
+debug_color = Color(0.7042816, 0, 0.19308099, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=163623588]
 position = Vector2(0, -12)
@@ -35,3 +54,7 @@ texture = ExtResource("1_d6veg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904961864]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ucbw6")
+
+[connection signal="timeout" from="DamageIntervalTimer" to="." method="_on_damage_interval_timer_timeout"]
+[connection signal="body_entered" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_entered"]
+[connection signal="body_exited" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_exited"]
