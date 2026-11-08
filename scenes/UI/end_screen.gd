@@ -1,8 +1,19 @@
 extends CanvasLayer
 
+
+@onready var title_label: Label = %TitleLabel
+@onready var description_label: Label = %DescriptionLabel
+
+
 func _ready() -> void:
 	get_tree().paused = true
 	
+
+func set_defeat():
+	title_label.text = "Defeat"
+	description_label.text = "You lost!"
+
+
 
 
 func _on_restart_button_pressed() -> void:
