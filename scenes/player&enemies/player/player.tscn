@@ -5,6 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://cehvsthrg1d4n" path="res://scenes/component/health_component.tscn" id="2_ie5ye"]
 [ext_resource type="PackedScene" uid="uid://bvijfx4pxwsys" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_v2miy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kkfo"]
+bg_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k12yv"]
+bg_color = Color(0.2627451, 0.88235295, 0.7019608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 20.024984
 
@@ -27,6 +38,19 @@ script = ExtResource("1_h6syq")
 [node name="DamageIntervalTimer" type="Timer" parent="." unique_id=330152183]
 wait_time = 0.5
 one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1313114242]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -31.0
+offset_right = 16.0
+offset_bottom = -25.0
+pivot_offset = Vector2(16, 3)
+theme_override_styles/background = SubResource("StyleBoxFlat_4kkfo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k12yv")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [node name="PickupArea2D" type="Area2D" parent="." unique_id=495833925]
 collision_layer = 16
@@ -55,6 +79,7 @@ texture = ExtResource("1_d6veg")
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ucbw6")
 
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_changed"]
 [connection signal="timeout" from="DamageIntervalTimer" to="." method="_on_damage_interval_timer_timeout"]
 [connection signal="body_entered" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_entered"]
 [connection signal="body_exited" from="CollisionArea2D" to="." method="_on_collision_area_2d_body_exited"]
