@@ -30,12 +30,13 @@ func _process(delta: float) -> void:
 	else:
 		animation_player.play("RESET")
 	
-	var move_sign = sign(movement_vector.x)
-	if move_sign == 0:
-		visuals.scale = Vector2.ONE
-	else:
-		visuals.scale = Vector2(move_sign, 1)
+	if movement_vector.x != 0:
+		visuals.scale.x = sign(movement_vector.x)
 	
+	# --------- LIFE REGEN provisorio
+	health_component.damage(-0.005) 
+
+
 func get_movement_vector() -> Vector2:
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
@@ -49,8 +50,10 @@ func check_deal_damage():
 	damage_interval_timer.start()
 	print(health_component.current_health)
 
+
 func update_health_display():
 	health_bar.value = health_component.get_health_percent()
+
 
 func _on_collision_area_2d_body_entered(body: Node2D):
 	number_colliding_bodies += 1
@@ -75,5 +78,3 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 	
 	var ability = ability_upgrade as Ability
 	abilities.add_child(ability.ability_controller_scene.instantiate())
-	
-	

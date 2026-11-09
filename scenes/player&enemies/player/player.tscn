@@ -142,7 +142,6 @@ value = 0.5
 show_percentage = false
 
 [node name="PickupArea2D" type="Area2D" parent="." unique_id=495833925]
-visible = false
 collision_layer = 16
 collision_mask = 0
 
@@ -159,7 +158,6 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_d6veg")
 
 [node name="CollisionArea2D" type="Area2D" parent="." unique_id=1857849759]
-visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -169,7 +167,6 @@ shape = SubResource("CircleShape2D_3cso4")
 debug_color = Color(0.7042816, 0, 0.19308099, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1904961864]
-visible = false
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_ucbw6")
 

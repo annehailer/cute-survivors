@@ -5,16 +5,18 @@ const MAX_SPEED = 60
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var label: Label = %Label
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var direction =  get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
+	
+	# teste vida (label)
 	if health_component:
 		label.text = str(health_component.current_health)
 	else:
 		label.text = "health_component is null"
-
 
 
 func get_direction_to_player():
