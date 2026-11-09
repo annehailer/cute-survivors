@@ -6,8 +6,11 @@ const ACCELERATION_SMOOTH = 20
 @onready var health_component = $HealthComponent
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var abilities: Node = $Abilities
+
 
 func _ready():
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	update_health_display()
 
 var number_colliding_bodies = 0
@@ -51,3 +54,13 @@ func _on_damage_interval_timer_timeout():
 
 func _on_health_changed():
 	update_health_display()
+
+
+func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if not ability_upgrade is Ability:
+		return
+	
+	var ability = ability_upgrade as Ability
+	abilities.add_child(ability.ability_controller_scene.instantiate())
+	
+	
