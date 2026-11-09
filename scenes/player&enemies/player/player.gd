@@ -7,6 +7,8 @@ const ACCELERATION_SMOOTH = 20
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var abilities: Node = $Abilities
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var visuals: Node2D = $Visuals
 
 
 func _ready():
@@ -22,7 +24,18 @@ func _process(delta: float) -> void:
 	
 	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTH))
 	move_and_slide()
-
+	
+	if movement_vector.x != 0 or movement_vector.y != 0:
+		animation_player.play("walk")
+	else:
+		animation_player.play("RESET")
+	
+	var move_sign = sign(movement_vector.x)
+	if move_sign == 0:
+		visuals.scale = Vector2.ONE
+	else:
+		visuals.scale = Vector2(move_sign, 1)
+	
 func get_movement_vector() -> Vector2:
 	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
