@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://beu4whjv2aea8" path="res://scenes/player&enemies/enemies/basic_enemy.gd" id="1_dwceu"]
 [ext_resource type="PackedScene" uid="uid://cehvsthrg1d4n" path="res://scenes/component/health_component.tscn" id="2_rxucu"]
 [ext_resource type="PackedScene" uid="uid://bfedca2m3ju3u" path="res://scenes/component/vial_drop_component.tscn" id="3_lyknp"]
+[ext_resource type="PackedScene" uid="uid://bbng1po58kupg" path="res://scenes/component/death_component.tscn" id="4_7kj7l"]
 [ext_resource type="PackedScene" uid="uid://dc6u5ay6k5sa7" path="res://scenes/component/hurtbox_component.tscn" id="4_csewq"]
 [ext_resource type="Texture2D" uid="uid://bjglaxblageq7" path="res://assets/sprites/rat.png" id="5_csewq"]
 
@@ -35,7 +36,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_7kj7l"]
 resource_name = "walk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -88,6 +89,10 @@ autoplay = &"walk"
 
 [node name="VialDropComponent" parent="." unique_id=1504829907 node_paths=PackedStringArray("health_component") instance=ExtResource("3_lyknp")]
 health_component = NodePath("../HealthComponent")
+
+[node name="DeathComponent" parent="." unique_id=559557698 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_7kj7l")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HurtboxComponent" parent="." unique_id=1730692090 node_paths=PackedStringArray("health_component") instance=ExtResource("4_csewq")]
 health_component = NodePath("../HealthComponent")

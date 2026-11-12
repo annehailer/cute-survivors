@@ -4,13 +4,17 @@ const MAX_SPEED = 60
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var label: Label = %Label
+@onready var visuals: Node2D = $Visuals
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var direction =  get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
+	
+	var move_sign = sign(velocity.x)
+	if move_sign != 0:
+		visuals.scale = Vector2(-move_sign, 1)
 	
 	# teste vida (label)
 	if health_component:
