@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b0nyiy4t0trh1"]
 
 [ext_resource type="Script" uid="uid://d2uemrafu8ye1" path="res://scenes/managers/enemy_manager.gd" id="1_e74v5"]
-[ext_resource type="PackedScene" uid="uid://duw6d6777obyx" path="res://scenes/player&enemies/enemies/basic_enemy.tscn" id="2_myqsb"]
+[ext_resource type="PackedScene" uid="uid://bjfeepb2a23gn" path="res://scenes/player&enemies/enemies/wizard_enemy.tscn" id="2_t8wtq"]
 
 [node name="EnemySpawnerManager" type="Node" unique_id=1241279670]
 script = ExtResource("1_e74v5")
-basic_enemy_scene = ExtResource("2_myqsb")
+basic_enemy_scene = ExtResource("2_t8wtq")
 
 [node name="Timer" type="Timer" parent="." unique_id=1064942006]
 one_shot = true
