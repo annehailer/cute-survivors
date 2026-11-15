@@ -40,6 +40,10 @@ player=""
 entities_layer=""
 foreground_layer=""
 
+[gui]
+
+theme/custom="uid://daqdd4weig7xy"
+
 [input]
 
 move_left={
