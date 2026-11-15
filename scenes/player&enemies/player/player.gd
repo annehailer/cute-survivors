@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		visuals.scale.x = sign(movement_vector.x)
 	
 	# --------- LIFE REGEN provisorio
-	health_component.damage(-0.005) 
+	#health_component.damage(-0.005) 
 
 
 func get_movement_vector() -> Vector2:
