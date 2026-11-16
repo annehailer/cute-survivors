@@ -75,7 +75,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_csewq"]
 radius = 15.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_spd58"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nygkb"]
 resource_local_to_scene = true
 shader = ExtResource("8_nygkb")
 shader_parameter/lerp_percent = 0.0
@@ -116,7 +116,7 @@ debug_color = Color(0.6539005, 0.008186319, 0.31419885, 0.41960785)
 [node name="HitFlashComponent" parent="." unique_id=86763998 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_ln4kw")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_spd58")
+hit_flash_material = SubResource("ShaderMaterial_nygkb")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1639802702]
 
