@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bbng1po58kupg" path="res://scenes/component/death_component.tscn" id="2_mkwek"]
 [ext_resource type="PackedScene" uid="uid://bfedca2m3ju3u" path="res://scenes/component/vial_drop_component.tscn" id="4_6uqxx"]
 [ext_resource type="PackedScene" uid="uid://dc6u5ay6k5sa7" path="res://scenes/component/hurtbox_component.tscn" id="4_mkwek"]
+[ext_resource type="PackedScene" uid="uid://bbe4bii8fdqf1" path="res://scenes/component/hit_flash_component.tscn" id="8_fue1m"]
+[ext_resource type="Shader" uid="uid://b01h66tkk8sno" path="res://resources/shader/hit_flash/hit_flash_component.gdshader" id="9_3t4iv"]
 
 [sub_resource type="Animation" id="Animation_lxslj"]
 length = 0.001
@@ -49,7 +51,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_6uqxx"]
 resource_name = "walk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -115,6 +117,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d6ni"]
 radius = 14.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7b12e"]
+resource_local_to_scene = true
+shader = ExtResource("9_3t4iv")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ucbw6"]
 radius = 7.0
 
@@ -156,6 +163,11 @@ health_component = NodePath("../HealthComponent")
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_3d6ni")
 debug_color = Color(1, 0.10474976, 0.3029841, 0.41960785)
+
+[node name="HitFlashComponent" parent="." unique_id=1822598723 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_fue1m")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_7b12e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806149821]
 position = Vector2(0, -7)
