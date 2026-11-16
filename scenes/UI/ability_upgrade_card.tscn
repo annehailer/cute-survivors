@@ -4,20 +4,44 @@
 
 [node name="AbilityUpgradeCard" type="PanelContainer" unique_id=991648117]
 custom_minimum_size = Vector2(120, 150)
+offset_right = 150.0
+offset_bottom = 150.0
 script = ExtResource("1_xbdcf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=270373968]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=524681335]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=270373968]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=1711794633]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1307187961]
 layout_mode = 2
-text = "test name"
+mouse_filter = 2
+theme_type_variation = &"AlternatePanelContainer"
 
-[node name="DescriptionLabel" type="Label" parent="VBoxContainer" unique_id=273962506]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=1711794633]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Description here"
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 32
+text = "Ability Name"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=273962506]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
+theme_override_constants/outline_size = 8
+text = "Description here ablublu blu blu blu blu ble"
 autowrap_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
